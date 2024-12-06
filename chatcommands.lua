@@ -24,10 +24,12 @@ local create_channel = {
 		--check player privileges if plugin priv_cc is enabled
 		local name_priv2cc = minetest.settings:get("beerchat.name_priv_cc")
 		if minetest.settings:get_bool("beerchat.enable_priv_cc") then
-        		if not (minetest.check_player_privs(lowner, name_priv2cc) or minetest.check_player_privs(lowner, beerchat.admin_priv)) then
-                		return false, "You don't have that privilege."
-        		end
-		end  --end check priv_cc
+			if not (minetest.check_player_privs(lowner, name_priv2cc) or
+				 minetest.check_player_privs(lowner, beerchat.admin_priv)) then
+				return false, "You don't have that privilege."
+			end
+		end
+		--end check priv_cc
 
 		if not param or param == "" then
 			return false, "ERROR: Invalid number of arguments. Please supply the channel name as a minimum."
