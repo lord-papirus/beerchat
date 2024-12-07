@@ -2,8 +2,7 @@
 local name_priv2cc = minetest.settings:get("beerchat.priv_cc.name")
 if name_priv2cc == '' then name_priv2cc = 'chat_creator' end
 minetest.log("info", "to create channel add new priv: " .. name_priv2cc)
-local S = minetest.get_translator("name_priv2cc")
-        minetest.register_privilege(name_priv2cc, {
-                description = S("Allows you to create a channel"),
-                give_to_singleplayer = false
-        })
+minetest.register_privilege(name_priv2cc, {
+        description = "Allows you to create a channel (mod beerchat)",
+        give_to_singleplayer = false
+})
