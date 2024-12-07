@@ -22,8 +22,8 @@ local create_channel = {
 		local lowner = lname
 
 		--check player privileges if plugin priv_cc is enabled
-		local name_priv2cc = minetest.settings:get("beerchat.name_priv_cc")
 		if minetest.settings:get_bool("beerchat.enable_priv_cc") then
+			local name_priv2cc = minetest.settings:get("beerchat.priv_cc.name")
 			if not (minetest.check_player_privs(lowner, name_priv2cc) or
 				 minetest.check_player_privs(lowner, beerchat.admin_priv)) then
 				return false, "You don't have that privilege."
